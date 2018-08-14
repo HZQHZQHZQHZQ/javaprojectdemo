@@ -1,4 +1,4 @@
-package com.chu.demo.pictest;
+package com.chu.demo.littlepic;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,6 +8,9 @@ import javax.imageio.ImageIO;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 
+/**
+ * 缩略图工具类
+ */
 public class LittlePicUtil {
 
 	public static void main(String[] args) {
