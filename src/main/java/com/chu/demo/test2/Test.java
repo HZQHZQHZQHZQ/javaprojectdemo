@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 public class Test {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		Filter f1 = new Filter();
 		f1.setId(10);
 		Filter f2 = new Filter();
