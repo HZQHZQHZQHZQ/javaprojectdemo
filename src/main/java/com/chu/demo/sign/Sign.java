@@ -9,7 +9,7 @@ import javax.crypto.spec.SecretKeySpec;
 /**
  * author:hezhiqiang
  * Date:2018/9/4 16:39
- * remark:
+ * remark: 腾讯人脸识别签名算法
  */
 public class Sign {
 
