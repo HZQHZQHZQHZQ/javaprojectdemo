@@ -281,10 +281,10 @@ public class Demo {
         String ret;
         // 1. url方式
         System.out.println("====================================================");
-        String groupId = "student";
-        String[] groupIds = {"groupA", "groupB"};
-        String faceImageUrl = "http://118.190.164.186/portal_pic/vip/s2.jpg";
-        FaceIdentifyRequest faceIdentifyReq = new FaceIdentifyRequest(bucketName, groupId, faceImageUrl);// 一个 groupId
+        String groupId = "2017";
+        String[] groupIds = {"2017", "2018"};
+        String faceImageUrl = "https://eqcube.com/uploadFile/image/5cfffa197fbe49bcacac9e69535e256b.jpg";
+        FaceIdentifyRequest faceIdentifyReq = new FaceIdentifyRequest(bucketName, groupIds, faceImageUrl);// 一个 groupId
         //FaceIdentifyRequest  faceIdentifyReq = new FaceIdentifyRequest(bucketName, groupIds, faceImageUrl);// 多个 groupId
         ret = imageClient.faceIdentify(faceIdentifyReq);
         System.out.println("face identify ret:" + ret);
@@ -505,37 +505,36 @@ public class Demo {
     private static String faceNewPerson(ImageClient imageClient, String bucketName) {
         String ret;
         FaceNewPersonRequest personNewReq;
-        String[] groupIds = new String[2];
-        groupIds[0] = "group0";
-        groupIds[1] = "group1";
+        String[] groupIds = new String[1];
+        groupIds[0] = "student";
         String personName = "yangmi1";
         String personId = "personId1";
         String personTag = "star1";
         
         // 1. url方式
         System.out.println("====================================================");
-        String personNewUrl = "YOUR URL";
+        String personNewUrl = "https://eqcube.com/uploadFile/image/203b25c0d90445fc86822cdd9a2b09de.jpg";
         personNewReq = new FaceNewPersonRequest(bucketName, personId, groupIds, personNewUrl, personName, personTag);
         ret = imageClient.faceNewPerson(personNewReq);
         System.out.println("person new  ret:" + ret);
-
-        //2. 图片内容方式
-        System.out.println("====================================================");
-        File personNewImage = new File("assets","icon_face_01.jpg");
-        personNewReq = new FaceNewPersonRequest(bucketName, personId, groupIds, personNewImage, personName, personTag);
-        ret = imageClient.faceNewPerson(personNewReq);
-        System.out.println("person new ret:" + ret);
-        
-        //3. 图片内容方式(byte[])
-        System.out.println("====================================================");
-        byte[] imageContent = getFileBytes(personNewImage);
-        if (imageContent != null) {
-            personNewReq = new FaceNewPersonRequest(bucketName, personId, groupIds, imageContent, personName, personTag);
-            ret = imageClient.faceNewPerson(personNewReq);
-            System.out.println("person new ret:" + ret);
-        } else {
-            System.out.println("person new ret: get image content fail");
-        }
+//
+//        //2. 图片内容方式
+//        System.out.println("====================================================");
+//        File personNewImage = new File("assets","icon_face_01.jpg");
+//        personNewReq = new FaceNewPersonRequest(bucketName, personId, groupIds, personNewImage, personName, personTag);
+//        ret = imageClient.faceNewPerson(personNewReq);
+//        System.out.println("person new ret:" + ret);
+//        
+//        //3. 图片内容方式(byte[])
+//        System.out.println("====================================================");
+//        byte[] imageContent = getFileBytes(personNewImage);
+//        if (imageContent != null) {
+//            personNewReq = new FaceNewPersonRequest(bucketName, personId, groupIds, imageContent, personName, personTag);
+//            ret = imageClient.faceNewPerson(personNewReq);
+//            System.out.println("person new ret:" + ret);
+//        } else {
+//            System.out.println("person new ret: get image content fail");
+//        }
         
         return personId;
     }
